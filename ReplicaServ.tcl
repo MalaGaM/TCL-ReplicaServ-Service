@@ -234,7 +234,7 @@ proc ::ReplicaServ::Check:Config { } {
 			putlog "\[ Erreur \] Configuration de ReplicaServ Service Incorrecte... '$CONF' Paramettre manquant"
 			exit "ReplicaServ quit"
 		}
-		if { $config($CONF) == "" } {
+		if { $config($CONF) == "" &&  $CONF != "serverinfo_id"} {
 			putlog "\[ Erreur \] Configuration de ReplicaServ Service Incorrecte... '$CONF' Valeur vide"
 			exit "ReplicaServ quit"
 		}
