@@ -1,9 +1,9 @@
 #############################################################################
 ##-->						TCL ReplicaServ Service						<--##
 #---------------------------------------------------------------------------#
-## Auteur	: MalaGaM
-## Website	: https://github.com/MalaGaM/TCL-ReplicaServ-Service
-## Support	: https://github.com/MalaGaM/TCL-ReplicaServ-Service/issues
+## Auteur	: ZarTek
+## Website	: https://github.com/ZarTek-Creole/TCL-ReplicaServ-Service
+## Support	: https://github.com/ZarTek-Creole/TCL-ReplicaServ-Service/issues
 ##
 ## Greet	:
 ##		-> DJ-Philo,Averell & NiCkOoS pour versions tclsh 'Les poupées linkeuses'
@@ -11,8 +11,8 @@
 ##		-> MenzAgitat de www.eggdrop.fr pour ses astuces/conseils
 ##		-> CrazyCat de www.eggdrop.fr pour sa communauté eggdrop français
 #############################################################################
-if { [catch { package require IRCServices 0.0.4 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCServices 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'https://github.com/MalaGaM/TCL-PKG-IRCServices'. Le chargement du script a été annulé." ; die }
-if { [catch { package require IRCC 0.0.1 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCC 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'https://github.com/MalaGaM/TCL-PKG-IRCC'. Le chargement du script a été annulé." ; die }
+if { [catch { package require IRCServices 0.0.4 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCServices 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'https://github.com/ZarTek-Creole/TCL-PKG-IRCServices'. Le chargement du script a été annulé." ; die }
+if { [catch { package require IRCC 0.0.1 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCC 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'https://github.com/ZarTek-Creole/TCL-PKG-IRCC'. Le chargement du script a été annulé." ; die }
 if {[info commands ::ReplicaServ::uninstall] eq "::ReplicaServ::uninstall" } { ::ReplicaServ::uninstall }
 namespace eval ReplicaServ {
 	variable config
@@ -23,7 +23,7 @@ namespace eval ReplicaServ {
 
 	set config(scriptname)		"ReplicaServ Service"
 	set config(version)			"1.1.20210327"
-	set config(auteur)			"MalaGaM"
+	set config(auteur)			"ZarTek"
 
 	set config(init)			0
 
@@ -211,7 +211,7 @@ proc ::ReplicaServ::INIT:BOTSERVICE {} {
 		# si [target] commence par # c'est un salon
 		if { [string index [target] 0] == "#"} {
 			if { $cmd == "!help"	}	{
-				# Received: :MalaGaM PRIVMSG #Eva :!help
+				# Received: :ZarTek PRIVMSG #Eva :!help
 				::ReplicaServ::IRC:CMD:PUB:HELP [who] [target] $cmd $data
 			}
 		}
@@ -615,7 +615,7 @@ proc ::ReplicaServ::IRC:Connexion { IRC_NAME IRC_HOST IRC_PORT {IRC_PASSWORD ""}
 			::ReplicaServ::SENT:MSG:TO:CHAN:LOG \"Le NICK '$IRC_NICKNAME' est utilisé sur $IRC_NAME.. je prend \$nicknew\"
 		}
 	"
-	# 353 MalaGaM2 = #feral :MalaGaM2 ZarTek ozymandias_ ant1mony_ EpicKitty _Lemon_ feralbot2 knv2[m] 
+	# 353 ZarTek2 = #feral :ZarTek2 ZarTek ozymandias_ ant1mony_ EpicKitty _Lemon_ feralbot2 knv2[m] 
 	$PIPELINE registerevent 353 "
 		set IRC_CHANNEL		\[lindex \[additional\] 1\]
 		set IRC_USERS_LIST	\[msg\]
@@ -623,10 +623,10 @@ proc ::ReplicaServ::IRC:Connexion { IRC_NAME IRC_HOST IRC_PORT {IRC_PASSWORD ""}
 			# /NAMES
 	"
 	$PIPELINE registerevent 352 "
-		# 352 MalaGaM2 #feral ~limnoria 2607:5300:60:814::1 sinisalo.freenode.net feralbot2 H :0 Limnoria Limnoria 2016.12.08
-		# 352 MalaGaM2 #feral ~joshua 185.21.216.160 beckett.freenode.net _Lemon_ H :0 Unknown
-		# 352 MalaGaM2 #feral EpicKitty unaffiliated/epickitty wilhelm.freenode.net EpicKitty H :0 Richard Bowey
-		# 352 MalaGaM2 #feral ~epollyon 185.21.216.154 beckett.freenode.net ant1mony_ H :0 Unknown
+		# 352 ZarTek2 #feral ~limnoria 2607:5300:60:814::1 sinisalo.freenode.net feralbot2 H :0 Limnoria Limnoria 2016.12.08
+		# 352 ZarTek2 #feral ~joshua 185.21.216.160 beckett.freenode.net _Lemon_ H :0 Unknown
+		# 352 ZarTek2 #feral EpicKitty unaffiliated/epickitty wilhelm.freenode.net EpicKitty H :0 Richard Bowey
+		# 352 ZarTek2 #feral ~epollyon 185.21.216.154 beckett.freenode.net ant1mony_ H :0 Unknown
 		set channel		\[lindex \[additional\] 0\]
 		set ident		\[lindex \[additional\] 1\]
 		set host		\[lindex \[additional\] 2\]
@@ -753,10 +753,10 @@ proc ::ReplicaServ::IRC:Event { IRC_NAME } {
 			exit "ReplicaServ quit"
 		}
 		"352" {
-			# 352 MalaGaM2 #feral ~limnoria 2607:5300:60:814::1 sinisalo.freenode.net feralbot2 H :0 Limnoria Limnoria 2016.12.08
-			# 352 MalaGaM2 #feral ~joshua 185.21.216.160 beckett.freenode.net _Lemon_ H :0 Unknown
-			# 352 MalaGaM2 #feral EpicKitty unaffiliated/epickitty wilhelm.freenode.net EpicKitty H :0 Richard Bowey
-			# 352 MalaGaM2 #feral ~epollyon 185.21.216.154 beckett.freenode.net ant1mony_ H :0 Unknown
+			# 352 ZarTek2 #feral ~limnoria 2607:5300:60:814::1 sinisalo.freenode.net feralbot2 H :0 Limnoria Limnoria 2016.12.08
+			# 352 ZarTek2 #feral ~joshua 185.21.216.160 beckett.freenode.net _Lemon_ H :0 Unknown
+			# 352 ZarTek2 #feral EpicKitty unaffiliated/epickitty wilhelm.freenode.net EpicKitty H :0 Richard Bowey
+			# 352 ZarTek2 #feral ~epollyon 185.21.216.154 beckett.freenode.net ant1mony_ H :0 Unknown
 			set channel		[lindex $arg 3]
 			set ident		[lindex $arg 4]
 			set host		[lindex $arg 5]
@@ -770,13 +770,13 @@ proc ::ReplicaServ::IRC:Event { IRC_NAME } {
 			
 		}
 		"353"	{
-			# 353 MalaGaM2 = #feral :MalaGaM2 ZarTek ozymandias_ ant1mony_ EpicKitty _Lemon_ feralbot2 knv2[m] 
+			# 353 ZarTek2 = #feral :ZarTek2 ZarTek ozymandias_ ant1mony_ EpicKitty _Lemon_ feralbot2 knv2[m] 
 			regexp {^\S+ \d+ \S+ \S (\S+) :(.+)$} [join $arg] - IRC_CHANNEL IRC_USERS_LIST
 			::ReplicaServ::SENT:MSG:TO:CHAN:LOG "<c12>Socket IRC :<c04> $IRC_NAME <c11>$IRC_CHANNEL<c04> $IRC_USERS_LIST"
 			# /NAMES
 		}
 		"366"	{
-			# 366 MalaGaM2 #feral :End of /NAMES list.
+			# 366 ZarTek2 #feral :End of /NAMES list.
 			regexp {^\S+ \d+ \S+ (\S+)} [join $arg] - IRC_CHANNEL
 			# poupee::classer $IRC_CHANNEL
 			::ReplicaServ::SENT:MSG:TO:CHAN:LOG "<c12>Socket IRC :<c04> $IRC_NAME <c11>FIN DE /NAMES<c04> $IRC_CHANNEL"
@@ -785,14 +785,14 @@ proc ::ReplicaServ::IRC:Event { IRC_NAME } {
 			# Fin de /NAMES
 		}
 		"372"	{
-			# 372 MalaGaM2 :- Welcome to barjavel.freenode.net in Paris, FR, EU. {}
-			# 372 MalaGaM2 :- Thanks to Bearstech (www.bearstech.com) for sponsoring
+			# 372 ZarTek2 :- Welcome to barjavel.freenode.net in Paris, FR, EU. {}
+			# 372 ZarTek2 :- Thanks to Bearstech (www.bearstech.com) for sponsoring
 		}
 		"375"	{
-			# 375 MalaGaM2 :- barjavel.freenode.net Message of the Day - {}
+			# 375 ZarTek2 :- barjavel.freenode.net Message of the Day - {}
 		}
 		"376"	{
-			# 376 MalaGaM2 :End of /MOTD command.
+			# 376 ZarTek2 :End of /MOTD command.
 		}
 		"433"	{
 			# 433 * RepliBoy :Nickname is already in use.'
