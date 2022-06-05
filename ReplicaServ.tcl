@@ -2,8 +2,8 @@
 ##-->						TCL ReplicaServ Service						<--##
 #---------------------------------------------------------------------------#
 ## Auteur	: ZarTek
-## Website	: https://github.com/ZarTek-Creole/TCL-ReplicaServ-Service
-## Support	: https://github.com/ZarTek-Creole/TCL-ReplicaServ-Service/issues
+## Website	: github.com/ZarTek-Creole/TCL-ReplicaServ-Service
+## Support	: github.com/ZarTek-Creole/TCL-ReplicaServ-Service/issues
 ##
 ## Greet	:
 ##		-> DJ-Philo,Averell & NiCkOoS pour versions tclsh 'Les poupées linkeuses'
@@ -11,8 +11,8 @@
 ##		-> MenzAgitat de www.eggdrop.fr pour ses astuces/conseils
 ##		-> CrazyCat de www.eggdrop.fr pour sa communauté eggdrop français
 #############################################################################
-if { [catch { package require IRCServices 0.0.4 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCServices 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'https://github.com/ZarTek-Creole/TCL-PKG-IRCServices'. Le chargement du script a été annulé." ; die }
-if { [catch { package require IRCC 0.0.1 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCC 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'https://github.com/ZarTek-Creole/TCL-PKG-IRCC'. Le chargement du script a été annulé." ; die }
+if { [catch { package require IRCServices 0.0.4 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCServices 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'github.com/ZarTek-Creole/TCL-PKG-IRCServices'. Le chargement du script a été annulé." ; die }
+if { [catch { package require IRCC 0.0.1 }] } { putloglev o * "\00304\[ReplicaServ - erreur\]\003 ReplicaServ nécessite le package IRCC 0.0.1 (ou plus) pour fonctionner, Télécharger sur 'github.com/ZarTek-Creole/TCL-PKG-IRCC'. Le chargement du script a été annulé." ; die }
 if {[info commands ::ReplicaServ::uninstall] eq "::ReplicaServ::uninstall" } { ::ReplicaServ::uninstall }
 namespace eval ReplicaServ {
 	variable config
