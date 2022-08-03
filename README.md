@@ -3,7 +3,14 @@
 
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+
+Version eggdrop du script "Les poupées linkeuses". Permet de répliqué sur votre IRCD les users/messages d'un ircd/salon distance
+
+
 lors de la connexion du services effectuer au irc :
+
 	chargement de network.db pour creer les connexion aux IRC ::ReplicaServ::IRC:Connexion
+	
 		lors du signal 001 (RPL_WELCOME) utilisateur reconnu par IRC : 
+		
 		Verification link.db pour joindre les salons
